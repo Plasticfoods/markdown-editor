@@ -1,11 +1,22 @@
 import Editor from "./Editor";
 import { AlignLeft } from 'lucide-react';
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function Home() {
+  const [headerHeight, setHeaderHeight] = useState('1rem');
+
+  useEffect(() => {
+    const headerElement = document.getElementById('myHeader');
+    if (headerElement) {
+      setHeaderHeight(headerElement.clientHeight)
+      console.log(headerElement.clientHeight)
+    }
+  }, []);
+
   return (
     <div className="home">
-      <header>
+      <header id="myHeader">
         <div className="header-wrapper flex justify-between items-center">
           <div className="header-left flex gap-8">
             <Link className="self-center">
@@ -18,7 +29,7 @@ function Home() {
           </div>
         </div>
       </header>
-      <Editor />
+      <Editor headerHeight={headerHeight} />
     </div>
   );
 }
