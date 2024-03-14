@@ -24,6 +24,7 @@ header {
     padding: 5px 10px;
     outline: none;
     background-color: inherit;
+    color: grey;
     font-size: 1.2rem;
  }
 
@@ -70,9 +71,8 @@ header {
 
 .preview__scroll {
     padding-top: 0;
-    line-height: 21px;
+    line-height: 30px;
 }
-
 
 
 @media (max-width: 768px) {

@@ -1,13 +1,11 @@
 import MarkdownSection from './MarkdownSection';
 import PreviewSection from './PreviewSection';
-import { useState } from 'react';
 
-export default function Editor({ headerHeight }) {
-  const [content, setContent] = useState('Hello, world!');
+export default function Editor({ content, handleContentChange }) {
 
   return (
     <div className="editor">
-      <MarkdownSection content={content} setContent={setContent} />
+      <MarkdownSection content={content} handleContentChange={handleContentChange} />
       <PreviewSection content={content} />
     </div>
   );

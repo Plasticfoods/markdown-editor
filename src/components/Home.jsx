@@ -1,18 +1,31 @@
 import Editor from "./Editor";
 import { AlignLeft } from 'lucide-react';
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { ListContext } from "../contexts/List";
 
 function Home() {
-  const [headerHeight, setHeaderHeight] = useState('1rem');
+  const {markdownList, updateItem, currentIndex} = useContext(ListContext)
+  console.log(markdownList)
+  if(markdownList === null) {
+    return (
+      <div>
+        <div>Loading...</div>
+      </div>
+    )
+  }
 
-  useEffect(() => {
-    const headerElement = document.getElementById('myHeader');
-    if (headerElement) {
-      setHeaderHeight(headerElement.clientHeight)
-      console.log(headerElement.clientHeight)
-    }
-  }, []);
+  const item = markdownList[currentIndex];
+
+  const handleContentChange = (newContent) => {
+    updateItem(item.name, newContent);
+  }
+
+  const handleNameChange = (newName) => {
+    updateItem(newName, item.content);
+  }
+
+  
 
   return (
     <div className="home">
@@ -25,11 +38,11 @@ function Home() {
             <h1 className="text-2xl font-bold">MdEditor</h1>
           </div>
           <div>
-            <input type="text" id="name-input" placeholder="Example.md" />
+            <input type="text" id="name-input" placeholder={item.name} onChange={(e) => handleNameChange(e.target.value)} />
           </div>
         </div>
       </header>
-      <Editor headerHeight={headerHeight} />
+      <Editor content={item.content} handleContentChange={handleContentChange} />
     </div>
   );
 }

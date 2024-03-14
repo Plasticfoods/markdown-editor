@@ -1,5 +1,5 @@
 
-export default function MarkdownSection({ content, setContent }) {
+export default function MarkdownSection({ content, handleContentChange }) {
 
     return (
         <div className="markdown-section">
@@ -13,7 +13,7 @@ export default function MarkdownSection({ content, setContent }) {
             <textarea
                 className='markdown-textarea ubuntu-mono-regular'
                 value={content}
-                onChange={(event) => setContent(event.target.value)}
+                onChange={(event) => handleContentChange(event.target.value)}
             />
         </div>
     );
