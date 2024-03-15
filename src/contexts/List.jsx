@@ -26,7 +26,9 @@ export const ListProvider = ({ children }) => {
 
     useEffect(() => {
         // if(curr-list is not null)
-        if (markdownList !== null) localStorage.setItem('md-list', JSON.stringify(markdownList));
+        if (markdownList !== null) {
+            localStorage.setItem('md-list', JSON.stringify(markdownList));
+        }
     }, [markdownList]);
 
     const addItem = () => {

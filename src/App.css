@@ -134,6 +134,10 @@ header {
         display: none;
     }
 
+    .sidebar {
+        right: 30%;
+    }
+
     .header-wrapper {
         width: 95%;
     }
@@ -143,7 +147,7 @@ header {
     }
 
     #name-input {
-        width: 80%;
+        width: 60%;
     }
 
     .header-right {

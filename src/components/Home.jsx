@@ -10,9 +10,9 @@ import { Eye, EyeOff } from 'lucide-react';
 function Home() {
   const {markdownList, updateItem, currentIndex} = useContext(ListContext)
   const [showPreview, setShowPreview] = useState(false);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
-  console.log(markdownList)
+  // console.log(markdownList)
   
   if(markdownList === null) {
     return (
@@ -23,6 +23,7 @@ function Home() {
   }
 
   const item = markdownList[currentIndex];
+  console.log(item)
 
   const handleContentChange = (newContent) => {
     updateItem(item.name, newContent);
@@ -47,11 +48,11 @@ function Home() {
             <h1 className="text-2xl font-bold title">MdEditor</h1>
           </div>
           {/* Header right */}
-          <div className="header-right">
+          <div className="header-right flex justify-end">
             <div className="icon-eye md:hidden">
               {showPreview ? <EyeOff size={28} onClick={() => setShowPreview(false)} /> : <Eye size={28} onClick={() => setShowPreview(true)} />}
             </div>
-            <input type="text" id="name-input" placeholder={item.name} onChange={(e) => handleNameChange(e.target.value)} />
+            <input type="text" id="name-input" placeholder={'New doucment.md'} value={item.name} onChange={(e) => handleNameChange(e.target.value)} />
           </div>
         </div>
       </header>
