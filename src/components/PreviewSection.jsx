@@ -5,7 +5,7 @@ export default function PreviewSection({ content }) {
 
     return (
         <div className="preview-section">
-            <div className="uppercase text-slate-400 font-medium text-xs pt-5 pl-6 pb-2"
+            <div className="uppercase  font-semibold text-gray-600 text-xs px-6 py-3"
                 style={{ border: '1px solid #2d3748' }}
             >
                 Preview

@@ -1,14 +1,23 @@
 
 export default function MarkdownSection({ content, handleContentChange }) {
+    
+    const getWordCount = () => {
+        const words = content.split(' ');
+        return words.filter(word => word !== '').length;
+    }
 
     return (
         <div className="markdown-section">
             {/* Section heading for markdown */}
             <div
-                className="uppercase text-slate-400 font-medium text-xs pt-5 pl-6 pb-2"
+                className="flex justify-between items-center uppercase font-semibold text-gray-500 text-xs px-6 py-3"
                 style={{ border: '1px solid #2d3748' }}
             >
-                Markdown
+                <div>Markdown</div>
+                <div className="flex gap-4">
+                    <div>Words: <span className="text-black">{getWordCount()}</span></div>
+                    <div>Characters: <span className="text-black">{content.length}</span></div>
+                </div>
             </div>
             <textarea
                 className='markdown-textarea ubuntu-mono-regular'

@@ -6,7 +6,9 @@ import { ListContext } from "../contexts/List";
 
 function Home() {
   const {markdownList, updateItem, currentIndex} = useContext(ListContext)
+
   console.log(markdownList)
+  
   if(markdownList === null) {
     return (
       <div>
@@ -30,8 +32,10 @@ function Home() {
   return (
     <div className="home">
       <header id="myHeader">
+        {/* Header wrapper */}
         <div className="header-wrapper flex justify-between items-center">
-          <div className="header-left flex gap-8">
+          {/* Header left */}
+          <div className="header-left flex gap-5">
             <Link className="self-center">
               <AlignLeft size={24} />
             </Link>
