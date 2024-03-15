@@ -3,6 +3,7 @@
     height: 100dvh;
     display: grid;
     grid-template-rows: auto 1fr;
+    position: relative;
 }
 
 header {
@@ -74,6 +75,59 @@ header {
     line-height: 30px;
 }
 
+.sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 80%;
+    height: 100dvh;
+    z-index: 10;
+
+    background-color: #2b2a2a;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    overflow-y: auto;
+}
+
+.icon-close-menu {
+    padding-inline: 1rem;
+    margin-bottom: 3rem;
+}
+
+.icon-close-menu * {
+    float: right;
+}
+
+.icon-close-menu *:hover {
+    cursor: pointer;
+}
+
+.sidebar-inner {
+    display: grid;
+    gap: 1.8rem;
+}
+
+.doc-link {
+    color: gray;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-sidebar {
+    width: 80%;
+    margin-inline: auto;
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+    border-radius: 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: .8rem;
+    color: white;
+}
 
 @media (max-width: 768px) {
     .desktop {

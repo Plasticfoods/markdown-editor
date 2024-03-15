@@ -1,4 +1,5 @@
 import Editor from "./Editor";
+import Sidebar from "./Sidebar";
 import { AlignLeft } from 'lucide-react';
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -9,6 +10,7 @@ import { Eye, EyeOff } from 'lucide-react';
 function Home() {
   const {markdownList, updateItem, currentIndex} = useContext(ListContext)
   const [showPreview, setShowPreview] = useState(false);
+  const [open, setOpen] = useState(true);
 
   console.log(markdownList)
   
@@ -30,17 +32,17 @@ function Home() {
     updateItem(newName, item.content);
   }
 
-  
 
   return (
     <div className="home">
+      {open && <Sidebar setOpen={setOpen} />}
       <header id="myHeader">
         {/* Header wrapper */}
         <div className="header-wrapper flex justify-between items-center">
           {/* Header left */}
           <div className="header-left md:flex md:gap-5">
             <Link className="self-center">
-              <AlignLeft size={24} />
+              <AlignLeft size={24} onClick={() => setOpen(true)} />
             </Link>
             <h1 className="text-2xl font-bold title">MdEditor</h1>
           </div>
