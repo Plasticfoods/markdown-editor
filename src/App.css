@@ -76,6 +76,10 @@ header {
 
 
 @media (max-width: 768px) {
+    .desktop {
+        display: none;
+    }
+
     .header-wrapper {
         width: 95%;
     }

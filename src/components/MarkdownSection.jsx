@@ -1,5 +1,5 @@
 
-export default function MarkdownSection({ content, handleContentChange }) {
+export default function MarkdownSection({ content, handleContentChange, className }) {
     
     const getWordCount = () => {
         const words = content.split(' ');
@@ -7,7 +7,7 @@ export default function MarkdownSection({ content, handleContentChange }) {
     }
 
     return (
-        <div className="markdown-section">
+        <div className={`markdown-section ${className}`}>
             {/* Section heading for markdown */}
             <div
                 className="flex justify-between items-center uppercase font-semibold text-gray-500 text-xs px-6 py-3"
