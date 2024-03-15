@@ -3,9 +3,12 @@ import { AlignLeft } from 'lucide-react';
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { ListContext } from "../contexts/List";
+import { useState } from "react";
+import { Eye, EyeOff } from 'lucide-react';
 
 function Home() {
   const {markdownList, updateItem, currentIndex} = useContext(ListContext)
+  const [showPreview, setShowPreview] = useState(false);
 
   console.log(markdownList)
   
@@ -35,18 +38,22 @@ function Home() {
         {/* Header wrapper */}
         <div className="header-wrapper flex justify-between items-center">
           {/* Header left */}
-          <div className="header-left flex gap-5">
+          <div className="header-left md:flex md:gap-5">
             <Link className="self-center">
               <AlignLeft size={24} />
             </Link>
-            <h1 className="text-2xl font-bold">MdEditor</h1>
+            <h1 className="text-2xl font-bold title">MdEditor</h1>
           </div>
-          <div>
+          {/* Header right */}
+          <div className="header-right">
+            <div className="icon-eye md:hidden">
+              {showPreview ? <EyeOff size={28} onClick={() => setShowPreview(false)} /> : <Eye size={28} onClick={() => setShowPreview(true)} />}
+            </div>
             <input type="text" id="name-input" placeholder={item.name} onChange={(e) => handleNameChange(e.target.value)} />
           </div>
         </div>
       </header>
-      <Editor content={item.content} handleContentChange={handleContentChange} />
+      <Editor content={item.content} handleContentChange={handleContentChange} showPreview={showPreview} />
     </div>
   );
 }

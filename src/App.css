@@ -76,6 +76,24 @@ header {
 
 
 @media (max-width: 768px) {
+    .header-wrapper {
+        width: 95%;
+    }
+
+    .title {
+        display: none;
+    }
+
+    #name-input {
+        width: 80%;
+    }
+
+    .header-right {
+        display: flex;
+        gap: 1.2rem;
+        align-items: center;
+    }
+
     .editor {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
