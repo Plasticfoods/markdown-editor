@@ -20,7 +20,7 @@ export default function MarkdownSection({ content, handleContentChange, classNam
                 </div>
             </div>
             <textarea
-                className='markdown-textarea ubuntu-mono-regular'
+                className='markdown-textarea space-mono-regular'
                 value={content}
                 onChange={(event) => handleContentChange(event.target.value)}
             />

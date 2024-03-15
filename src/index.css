@@ -72,3 +72,9 @@ img, .img-reset {
   font-size: 1rem;
   font-style: normal;
 }
+
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
