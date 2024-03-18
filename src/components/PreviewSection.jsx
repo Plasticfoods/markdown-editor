@@ -2,6 +2,7 @@ import DOMPurify from 'dompurify';
 import ReactMarkdown from 'react-markdown'
 
 export default function PreviewSection({ content, className }) {
+    const sanitizedContent = DOMPurify.sanitize(content);
 
     return (
         <div className={`preview-section ${className}`}>
@@ -11,7 +12,7 @@ export default function PreviewSection({ content, className }) {
                 Preview
             </div>
             <div className="preview__scroll">
-                <ReactMarkdown>{content}</ReactMarkdown>
+                <ReactMarkdown>{sanitizedContent}</ReactMarkdown>
             </div>
         </div>
     );

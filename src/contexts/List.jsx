@@ -13,7 +13,7 @@ export const ListProvider = ({ children }) => {
         } else {
             // Initialize with a default value when there's no stored data
             const defaultList = [{
-                name: 'Example.md',
+                name: 'Untitled document',
                 content: '# Hello, world!',
                 id: Math.random().toString(36).substr(2, 9), // Generate a random ID
                 createdAt: new Date().toISOString(),
@@ -33,8 +33,8 @@ export const ListProvider = ({ children }) => {
 
     const addItem = () => {
         const newItem = {
-            name: 'Example.md',
-            content: '# Hello, world new file!',
+            name: 'Untitled document',
+            content: '# Hello, world!',
             id: Math.random().toString(36).substr(2, 9),
             createdAt: new Date()
         };

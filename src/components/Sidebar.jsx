@@ -48,7 +48,7 @@ export default function Sidebar({ setOpen }) {
                             <h2 className='title'>Documents</h2>
                             <ChevronDown color='white' className='chevron-icon' size={20} />
                         </div>
-                        <div className="links-controller expand" ref={linkController}>
+                        <div className="links-controller" ref={linkController}>
                             <ul className='service-links'>
                                 {markdownList.map((item, index) => (
                                     <li

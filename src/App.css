@@ -181,7 +181,7 @@ header {
         width: 95%;
     }
 
-    .title {
+    header .title {
         display: none;
     }
 
