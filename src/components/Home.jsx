@@ -12,16 +12,6 @@ function Home() {
   const [showPreview, setShowPreview] = useState(false);
   const sidebarRef = useRef(null);
 
-  if (markdownList === null) {
-    return (
-      <div>
-        <div>Loading...</div>
-      </div>
-    )
-  }
-
-  const item = markdownList[currentIndex];
-
   const handleContentChange = (newContent) => {
     updateItem(item.name, newContent);
   }
@@ -39,6 +29,17 @@ function Home() {
   }
 
   useClickAway(sidebarRef, closeSidebar)
+
+  if (markdownList === null) {
+    return (
+      <div>
+        <div>Loading...</div>
+      </div>
+    )
+  }
+
+  const item = markdownList[currentIndex];
+
 
   return (
     <div className="home">
