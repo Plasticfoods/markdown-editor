@@ -2,7 +2,7 @@ import { CircleX, ChevronDown } from 'lucide-react';
 import { useContext, useRef } from 'react';
 import { ListContext } from '../contexts/List';
 
-export default function Sidebar({ setOpen }) {
+export default function Sidebar({ closeSidebar, sidebarRef }) {
     const { markdownList, addItem, deleteItem, currentIndex, setCurrentIndex } = useContext(ListContext)
     const linkController = useRef(null);
 
@@ -30,10 +30,10 @@ export default function Sidebar({ setOpen }) {
     };
 
     return (
-        <div className="sidebar">
+        <div className="sidebar expand-sidebar" ref={sidebarRef}>
             {/* Sidebar close button  */}
             <div className='icon-close-menu'>
-                <CircleX color='white' className='circle-icon' onClick={() => setOpen(false)} />
+                <CircleX color='white' className='circle-icon' onClick={closeSidebar} />
             </div>
 
             {/* Sidebar inner = Everything close icon */}

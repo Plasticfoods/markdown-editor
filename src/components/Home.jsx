@@ -2,17 +2,16 @@ import Editor from "./Editor";
 import Sidebar from "./Sidebar";
 import { AlignLeft } from 'lucide-react';
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 import { ListContext } from "../contexts/List";
-import { useState } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import { Eye, EyeOff } from 'lucide-react';
 
 function Home() {
-  const {markdownList, updateItem, currentIndex} = useContext(ListContext)
+  const { markdownList, updateItem, currentIndex } = useContext(ListContext)
   const [showPreview, setShowPreview] = useState(false);
-  const [open, setOpen] = useState(false);
-  
-  if(markdownList === null) {
+  const sidebarRef = useRef(null);
+
+  if (markdownList === null) {
     return (
       <div>
         <div>Loading...</div>
@@ -21,7 +20,6 @@ function Home() {
   }
 
   const item = markdownList[currentIndex];
-  console.log(item)
 
   const handleContentChange = (newContent) => {
     updateItem(item.name, newContent);
@@ -31,17 +29,25 @@ function Home() {
     updateItem(newName, item.content);
   }
 
+  const expandSidebar = () => {
+    sidebarRef.current.classList.add('expand-sidebar');
+  }
+
+  const closeSidebar = () => {
+    sidebarRef.current.classList.remove('expand-sidebar');
+  }
+
 
   return (
     <div className="home">
-      {open && <Sidebar setOpen={setOpen} />}
+      <Sidebar closeSidebar={closeSidebar} sidebarRef={sidebarRef} />
       <header id="myHeader">
         {/* Header wrapper */}
         <div className="header-wrapper flex justify-between items-center">
           {/* Header left */}
           <div className="header-left md:flex md:gap-5">
             <Link className="self-center">
-              <AlignLeft size={24} onClick={() => setOpen(true)} />
+              <AlignLeft size={24} onClick={expandSidebar} />
             </Link>
             <h1 className="text-2xl font-bold title">MdEditor</h1>
           </div>

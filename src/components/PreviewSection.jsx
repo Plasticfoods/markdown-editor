@@ -11,7 +11,7 @@ export default function PreviewSection({ content, className }) {
             >
                 Preview
             </div>
-            <div className="preview__scroll">
+            <div className="preview__scroll expand-sidebar">
                 <ReactMarkdown>{sanitizedContent}</ReactMarkdown>
             </div>
         </div>
