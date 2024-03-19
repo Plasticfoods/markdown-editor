@@ -30,7 +30,7 @@ export default function Sidebar({ closeSidebar, sidebarRef }) {
     };
 
     return (
-        <div className="sidebar expand-sidebar" ref={sidebarRef}>
+        <div className="sidebar" ref={sidebarRef}>
             {/* Sidebar close button  */}
             <div className='icon-close-menu'>
                 <CircleX color='white' className='circle-icon' onClick={closeSidebar} />

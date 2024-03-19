@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ListContext } from "../contexts/List";
 import { useContext, useState, useRef, useEffect } from "react";
 import { Eye, EyeOff } from 'lucide-react';
+import { useClickAway } from "use-click-away";
 
 function Home() {
   const { markdownList, updateItem, currentIndex } = useContext(ListContext)
@@ -37,6 +38,7 @@ function Home() {
     sidebarRef.current.classList.remove('expand-sidebar');
   }
 
+  useClickAway(sidebarRef, closeSidebar)
 
   return (
     <div className="home">
